@@ -18,7 +18,7 @@ catch {
 	$response = Invoke-WebRequest -Uri $RandomURL2 -UseBasicParsing
 }
 
-$rand = Get-Random -Maximum 99999999
+$rand = [Guid]::NewGuid().Guid
 $isAdmin = [bool]([Security.Principal.WindowsIdentity]::GetCurrent().Groups -match 'S-1-5-32-544')
 $FilePath = if ($isAdmin) { "$env:SystemRoot\Temp\MAS_$rand.cmd" } else { "$env:TEMP\MAS_$rand.cmd" }
 
