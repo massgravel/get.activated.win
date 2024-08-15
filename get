@@ -12,7 +12,7 @@ $RandomURL1 = Get-Random -InputObject $URLs
 $RandomURL2 = ($URLs -ne $RandomURL1)[0]
 
 try {
-	$response = Invoke-WebRequest -Uri $RandomURL1 -UseBasicParsing
+    $response = Invoke-WebRequest -Uri $RandomURL1 -UseBasicParsing
 }
 catch {
     $response = Invoke-WebRequest -Uri $RandomURL2 -UseBasicParsing
